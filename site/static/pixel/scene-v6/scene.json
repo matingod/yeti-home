@@ -1,0 +1,19 @@
+{
+  "version": 6,
+  "image": "village.png",
+  "width": 2172,
+  "height": 724,
+  "horizonY": 500,
+  "groundY": 555,
+  "anchors": {
+    "tree": {"x": 1266, "y": 548},
+    "door": {"x": 1500, "y": 555},
+    "chimney": {"x": 1522, "y": 356},
+    "chicken": {"x": 1668, "y": 553},
+    "pond": {"x": 1854, "y": 628},
+    "duck": {"x": 1854, "y": 624}
+  },
+  "cat": {"size": 112, "footY": 650, "maxX": 1555},
+  "pondBounds": {"cx": 1854, "cy": 628, "rx": 190, "ry": 38},
+  "notes": "Complete pond and grass margin. Cat center stops left of the stone bank with enough clearance for every pose. Actors and shoreline share the image coordinate system."
+}

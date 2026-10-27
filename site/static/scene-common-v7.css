@@ -1,0 +1,8 @@
+/* Load after motion-v3.css. Only two animal-sized targets, never a scene overlay. */
+.village-ready .village-bird-hit{position:absolute;z-index:4;display:block;min-width:44px;min-height:44px;margin:0;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;cursor:pointer;touch-action:manipulation;pointer-events:auto}
+.village-ready .village-bird-hit[hidden]{display:none}
+.village-ready .village-bird-hit:focus-visible{outline:2px dashed var(--interior-accent,#61764a);outline-offset:2px}
+.village-bird-hit:is(:hover,:focus-visible) .village-cat-hint{opacity:1}
+
+/* Same v7 landscape if JavaScript is disabled or still loading. */
+.pixel-hero:not(.village-ready)::before{background-image:url('/static/pixel/scene-v7/village.png')}

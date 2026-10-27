@@ -1,0 +1,5 @@
+{
+  "demo": true,
+  "note": "Example only. The demo server supplies fictional current weather; configure your own snapshot for deployment.",
+  "raw": null
+}

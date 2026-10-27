@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "revision": 1,
+  "updated_at": "2026-01-01T00:00:00Z",
+  "demo": true,
+  "entries": [
+    {
+      "id": "demo-20260101-1",
+      "date": "2026-01-01",
+      "time_label": "示例时间",
+      "category": "DEMO / 界面",
+      "status": "verified",
+      "title": "示例：调整小镇导航",
+      "summary": "完全虚构的演示记录，不代表任何真实部署。",
+      "changes": [
+        "演示界面调整。"
+      ],
+      "verification": [
+        "仅用于演示日志筛选和展开。"
+      ],
+      "rollback": "恢复自己的配置备份。",
+      "evidence": [
+        "demo-fixture；没有私人证据文件"
+      ]
+    },
+    {
+      "id": "demo-20260101-2",
+      "date": "2026-01-01",
+      "time_label": "示例时间",
+      "category": "DEMO / 界面",
+      "status": "observed",
+      "title": "示例：观察天气组件",
+      "summary": "完全虚构的演示记录，不代表任何真实部署。",
+      "changes": [
+        "演示界面调整。"
+      ],
+      "verification": [
+        "仅用于演示日志筛选和展开。"
+      ],
+      "rollback": "恢复自己的配置备份。",
+      "evidence": [
+        "demo-fixture；没有私人证据文件"
+      ]
+    },
+    {
+      "id": "demo-20260101-3",
+      "date": "2026-01-01",
+      "time_label": "示例时间",
+      "category": "DEMO / 界面",
+      "status": "pending",
+      "title": "示例：准备新的服务卡片",
+      "summary": "完全虚构的演示记录，不代表任何真实部署。",
+      "changes": [
+        "演示界面调整。"
+      ],
+      "verification": [
+        "仅用于演示日志筛选和展开。"
+      ],
+      "rollback": "恢复自己的配置备份。",
+      "evidence": [
+        "demo-fixture；没有私人证据文件"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "yeti": {"hash": "GENERATE_LOCALLY_WITH_INIT_USERS", "role": "admin"},
+  "yuki": {"hash": "GENERATE_LOCALLY_WITH_INIT_USERS", "role": "user"}
+}

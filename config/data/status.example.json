@@ -1,0 +1,12 @@
+{
+  "ts": 0,
+  "hardware": {
+    "load": "0.00 0.00 0.00", "cores": 8,
+    "mem_total": 0, "mem_used": 0, "mem_avail": 0, "swap_used": 0,
+    "uptime_s": 0, "cpu_temp": null, "gpus": [], "gpu_apps": [],
+    "disks": [], "vms": [], "disk_slots_empty": 0
+  },
+  "storage": {"mounts": [], "sync_action": "idle", "array_state": "unknown", "md_num_invalid": 0},
+  "apps": {},
+  "snake": {"rows": [], "cols": []}
+}

@@ -1,0 +1,13 @@
+{
+  "id": "example-local-validation",
+  "date": "2026-01-01",
+  "time_label": "示例",
+  "category": "维护",
+  "status": "observed",
+  "title": "本地演示记录",
+  "summary": "虚构示例，不代表真实操作。",
+  "changes": ["在隔离目录生成示例页面"],
+  "verification": ["部署者自行补充真实检查结果"],
+  "rollback": "删除隔离目录即可",
+  "evidence": ["示例无私人日志、截图或凭据"]
+}

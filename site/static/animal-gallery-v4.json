@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "defaultAnimal": "cat",
+  "title": "动物图库",
+  "subtitle": "小动物的日常",
+  "animals": [
+    {
+      "id": "cat",
+      "name": "猫",
+      "description": "橘白小猫，八种熟悉的小表情。",
+      "actions": [
+        {
+          "id": "idle",
+          "name": "发呆与眨眼",
+          "description": "停下来看看你，耳朵轻轻动一动。",
+          "trigger": "路过时的小停顿",
+          "poster": "/static/pixel/cat-v3/cat-idle.png",
+          "gif": "/static/pixel/cat-v3/cat-idle.gif",
+          "scene": "cat",
+          "sceneAction": "idle"
+        },
+        {
+          "id": "walk",
+          "name": "慢慢散步",
+          "description": "沿草地散步，前后脚交替迈步。",
+          "trigger": "点击附近的草地",
+          "poster": "/static/pixel/cat-v3/cat-walk.png",
+          "gif": "/static/pixel/cat-v3/cat-walk.gif",
+          "scene": "cat",
+          "sceneAction": "walk"
+        },
+        {
+          "id": "run",
+          "name": "小跑过来",
+          "description": "距离远一点，就轻快地跑过去。",
+          "trigger": "点击远处的草地",
+          "poster": "/static/pixel/cat-v3/cat-run.png",
+          "gif": "/static/pixel/cat-v3/cat-run.gif",
+          "scene": "cat",
+          "sceneAction": "run"
+        },
+        {
+          "id": "jump",
+          "name": "开心蹦起",
+          "description": "先蹲下蓄力，再跳起来落地。",
+          "trigger": "点击小猫的回应之一",
+          "poster": "/static/pixel/cat-v3/cat-jump.png",
+          "gif": "/static/pixel/cat-v3/cat-jump.gif",
+          "scene": "cat",
+          "sceneAction": "jump"
+        },
+        {
+          "id": "stretch",
+          "name": "伸个懒腰",
+          "description": "前爪伸出去，舒服地舒展身体。",
+          "trigger": "停留休息或点击回应",
+          "poster": "/static/pixel/cat-v3/cat-stretch.png",
+          "gif": "/static/pixel/cat-v3/cat-stretch.gif",
+          "scene": "cat",
+          "sceneAction": "stretch"
+        },
+        {
+          "id": "sleep",
+          "name": "树下打盹",
+          "description": "蜷成一小团，安静地呼吸。",
+          "trigger": "巡游到树荫后休息",
+          "poster": "/static/pixel/cat-v3/cat-sleep.png",
+          "gif": "/static/pixel/cat-v3/cat-sleep.gif",
+          "scene": "cat",
+          "sceneAction": "sleep"
+        },
+        {
+          "id": "groom",
+          "name": "洗脸时间",
+          "description": "抬起小爪子，认真整理毛发。",
+          "trigger": "散步后的休息动作",
+          "poster": "/static/pixel/cat-v3/cat-groom.png",
+          "gif": "/static/pixel/cat-v3/cat-groom.gif",
+          "scene": "cat",
+          "sceneAction": "groom"
+        },
+        {
+          "id": "love",
+          "name": "喜欢你",
+          "description": "闭眼蹭蹭，冒出一颗小爱心。",
+          "trigger": "点击小猫的回应之一",
+          "poster": "/static/pixel/cat-v3/cat-love.png",
+          "gif": "/static/pixel/cat-v3/cat-love.gif",
+          "scene": "cat",
+          "sceneAction": "love"
+        }
+      ]
+    },
+    {
+      "id": "teddy",
+      "name": "香槟泰迪",
+      "description": "卷卷毛的小伙伴，走走、摇尾巴，再吃一口。",
+      "actions": [
+        {
+          "id": "walk",
+          "name": "慢慢散步",
+          "description": "四只小脚轮流迈步，卷毛跟着轻轻晃。",
+          "poster": "/static/pixel/animal-gallery-v4/teddy-walk.png",
+          "gif": "/static/pixel/animal-gallery-v4/teddy-walk.gif",
+          "scene": "dog-greet",
+          "sceneAction": "walk"
+        },
+        {
+          "id": "wag",
+          "name": "摇摇尾巴",
+          "description": "站好看着你，尾巴左右摇一摇。",
+          "poster": "/static/pixel/animal-gallery-v4/teddy-wag.png",
+          "gif": "/static/pixel/animal-gallery-v4/teddy-wag.gif",
+          "scene": "dog-greet",
+          "sceneAction": "wag"
+        },
+        {
+          "id": "eat",
+          "name": "认真吃饭",
+          "description": "低头吃一口，再抬起头看看。",
+          "poster": "/static/pixel/animal-gallery-v4/teddy-eat.png",
+          "gif": "/static/pixel/animal-gallery-v4/teddy-eat.gif",
+          "scene": "dog-greet",
+          "sceneAction": "eat"
+        }
+      ]
+    },
+    {
+      "id": "hen",
+      "name": "小鸡",
+      "description": "在房前走走，低头找一颗小谷粒。",
+      "actions": [
+        {
+          "id": "walk",
+          "name": "房前散步",
+          "description": "抬起小脚，慢慢往前走。",
+          "poster": "/static/pixel/animal-gallery-v4/hen-walk.png",
+          "gif": "/static/pixel/animal-gallery-v4/hen-walk.gif",
+          "scene": "chicken",
+          "sceneAction": "walk"
+        },
+        {
+          "id": "peck",
+          "name": "低头啄食",
+          "description": "低下头，啄一啄地上的小谷粒。",
+          "poster": "/static/pixel/animal-gallery-v4/hen-peck.png",
+          "gif": "/static/pixel/animal-gallery-v4/hen-peck.gif",
+          "scene": "chicken",
+          "sceneAction": "peck"
+        }
+      ]
+    },
+    {
+      "id": "duck",
+      "name": "小鸭",
+      "description": "在池塘里游一会儿，扑扑小翅膀。",
+      "actions": [
+        {
+          "id": "swim",
+          "name": "池塘游泳",
+          "description": "浮在水面，身体随着划水轻轻起伏。",
+          "poster": "/static/pixel/animal-gallery-v4/duck-swim.png",
+          "gif": "/static/pixel/animal-gallery-v4/duck-swim.gif",
+          "scene": "duck",
+          "sceneAction": "swim"
+        },
+        {
+          "id": "flap",
+          "name": "扑扑翅膀",
+          "description": "张开小翅膀，再轻轻收回来。",
+          "poster": "/static/pixel/animal-gallery-v4/duck-flap.png",
+          "gif": "/static/pixel/animal-gallery-v4/duck-flap.gif",
+          "scene": "duck",
+          "sceneAction": "flap"
+        }
+      ]
+    }
+  ]
+}

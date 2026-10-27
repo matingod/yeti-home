@@ -1,0 +1,21 @@
+/* The new pet layer shares the village's ambient light and pixel coordinates. */
+.village-ready .interior-pet-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;image-rendering:pixelated;filter:var(--interior-scene-filter,none)}
+.village-ready :is(.interior-dog-hit,.interior-food-hit){position:absolute;z-index:5;display:block;min-width:44px;min-height:44px;padding:0!important;margin:0;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;cursor:pointer;touch-action:manipulation;pointer-events:auto}
+.village-ready :is(.interior-dog-hit,.interior-food-hit):focus-visible{outline:2px dashed var(--interior-accent,#61764a);outline-offset:2px;background:#fff5cf20!important}
+.interior-pet-hint{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);white-space:nowrap;opacity:0;pointer-events:none;background:var(--interior-paper-raised,#fff7e1);border:1px solid var(--interior-edge,#89623b);box-shadow:2px 2px 0 #382a2440;color:var(--interior-text,#493624);font:12px/1.6 var(--pixel-font,"Microsoft YaHei",sans-serif);padding:3px 8px}
+:is(.interior-dog-hit,.interior-food-hit):is(:hover,:focus-visible) .interior-pet-hint{opacity:1}
+.interior-pet-tools{position:absolute;left:32px;bottom:12px;z-index:7;display:flex;align-items:center;flex-wrap:wrap;gap:6px;max-width:min(510px,calc(100% - 64px));padding:6px 8px;background:var(--interior-paper,#fff7e2);border:1px solid var(--interior-edge,#89623b);box-shadow:0 2px 0 var(--interior-shadow,#dbc18d);color:var(--interior-text,#493624);font:11px/1.5 var(--font,"Microsoft YaHei",sans-serif)}
+.interior-pet-tools button{border:1px solid var(--interior-ink-soft,#c5ab7e);border-radius:0;background:var(--interior-paper-raised,#fffbee);color:var(--interior-text,#493624);font:inherit;min-height:29px;padding:4px 8px;cursor:pointer;white-space:nowrap}
+.interior-pet-tools button:hover{background:var(--interior-surface,#f2e5c7);border-color:var(--interior-accent,#61764a)}
+.interior-pet-tools button:focus-visible{outline:2px solid var(--interior-accent,#61764a);outline-offset:3px}
+.interior-pet-tools .interior-pet-feed{background:var(--interior-accent,#61764a);border-color:var(--interior-edge,#89623b);color:#fff7e5}
+.interior-food-count{padding:0 4px;color:var(--interior-muted,#7e694e);font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.interior-pet-feedback:empty{display:none}.interior-pet-feedback{flex-basis:100%;font-size:11px;line-height:1.65;color:var(--interior-muted,#7e694e);max-width:45em}
+@media(max-width:720px){.interior-pet-tools{left:16px;bottom:8px;max-width:calc(100% - 32px);gap:5px;padding:5px 6px}.interior-pet-tools button{min-height:32px;padding:5px 8px}.interior-pet-feedback{font-size:10px}.interior-pet-hint{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.interior-pet-tools *{transition:none!important;animation:none!important}}
+/* 2026-10-26: content pages used to park the toolbar *below* the grass, which left it
+   floating alone on the page background, visually detached from the scene. It now sits
+   inside the scene at the bottom-left, exactly like Home. Phones (<=580px, see
+   interior-v10.css) keep the below-grass layout: the hero is too short to hold it there. */
+body.interior-v10:not(.pixel-home) .pixel-hero[data-interior-pets-ready] .interior-pet-tools{top:auto;bottom:12px;left:clamp(16px,2.5vw,32px);right:auto;width:fit-content;max-width:calc(100% - 32px);min-height:0;padding:6px 8px}
+@media(max-width:720px){.interior-pet-tools button{min-height:34px}.interior-pet-feedback{line-height:1.5}}

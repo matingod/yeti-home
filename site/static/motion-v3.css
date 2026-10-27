@@ -1,0 +1,30 @@
+/* The meadow stays full width; the house and actors share coordinates in pixel.js. */
+.village-ready{--village-ground-height:88px;background:#69c6f5!important;isolation:isolate;overflow:hidden}
+.pixel-hero.village-ready,.pixel-hero.compact-hero.village-ready,.pixel-server .pixel-hero.compact-hero.village-ready{min-height:258px;border-bottom:3px solid #86ad4e}
+.pixel-home .pixel-hero.village-ready{min-height:330px}.pixel-blog .pixel-hero.village-ready{min-height:300px}
+.village-ready::before,.pixel-hero.compact-hero.village-ready::before{content:none!important;background:none!important;mask-image:none!important;-webkit-mask-image:none!important}
+.village-ready .hero-copy{padding-bottom:calc(var(--village-ground-height) + 25px);z-index:3}
+.pixel-server .village-ready .hero-copy{padding-top:25px;padding-bottom:calc(var(--village-ground-height) + 17px)}
+.village-ready .hero-copy h1,.village-ready .hero-copy .sub{max-width:63%}.pixel-server .village-ready .hero-title h1{max-width:none}
+.village-ready .village-ground{position:absolute;bottom:0;left:0;right:0;height:var(--village-ground-height);pointer-events:none;z-index:-1;border-top:4px solid #93bd50;background-color:#99cc43;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='80' viewBox='0 0 160 80' shape-rendering='crispEdges'%3E%3Cg fill='%2394bd4f'%3E%3Cpath d='M12 14h2v6h-2zm4 2h2v6h-2zm-6 4h10v2H10zM80 45h2v5h-2zm4-3h2v9h-2zm-6 8h11v2H78zM136 18h2v6h-2zm4 2h2v5h-2zm-6 4h10v2h-10z'/%3E%3C/g%3E%3Cg fill='%23bfde71'%3E%3Cpath d='M46 35h6v2h-6zm56-20h5v2h-5zm42 43h5v2h-5zm-122 8h5v2h-5z'/%3E%3C/g%3E%3Cg fill='%23a2c754'%3E%3Cpath d='M53 65h8v2h-8zm43 3h5v2h-5zm24-30h6v2h-6zm-87-31h6v2h-6z'/%3E%3C/g%3E%3C/svg%3E");background-size:160px 80px;image-rendering:pixelated}
+.village-ready .village-illustration{position:absolute;z-index:-1;max-width:none!important;max-height:none!important;object-fit:fill;opacity:0;pointer-events:none;image-rendering:pixelated;mask-image:linear-gradient(to right,transparent,#000 24%);mask-composite:intersect;-webkit-mask-image:linear-gradient(to right,transparent,#000 24%);-webkit-mask-composite:source-in}
+.village-ready .village-illustration.is-ready{opacity:1}.village-ready .pixel-scene{z-index:0;pointer-events:none}
+.village-ready .village-cat-hit{position:absolute;z-index:4;display:block;min-width:44px;min-height:44px;padding:0!important;margin:0;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;cursor:pointer;touch-action:manipulation;pointer-events:auto}
+.village-ready .village-cat-hit[hidden]{display:none!important}.village-ready .village-cat-hit:focus-visible{outline:2px dashed #624729;outline-offset:1px;background:#fff5cf20!important}
+.village-cat-hint{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);white-space:nowrap;opacity:0;pointer-events:none;background:#fff4d9;border:1px solid #9c7341;box-shadow:2px 2px 0 #75582e33;color:#69482a;font:12px/1.5 var(--pixel-font,"Microsoft YaHei",sans-serif);padding:2px 7px}
+.village-cat-hit:hover .village-cat-hint,.village-cat-hit:focus-visible .village-cat-hint{opacity:1}
+.village-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.pixel-motion-control .village-gallery-link{border-left:1px solid #d7bc88;margin-left:3px;padding:2px 6px;color:#79542e;text-decoration:none;font-size:11px;white-space:nowrap}.pixel-motion-control .village-gallery-link:hover{text-decoration:underline;text-underline-offset:3px}
+[data-pixel-motion=still] .village-ready *,[data-village-playing=false] .village-ready .pixel-scene *{animation-play-state:paused!important;transition:none!important}
+.pixel-backdrop.village-ready,.entrance-scene.village-ready,.pixel-login-scene.village-ready{--village-ground-height:112px;background:#69c6f5!important}
+@media(min-width:701px) and (max-width:1000px){.village-ready .hero-copy .hero-search{max-width:min(460px,calc(100vw - 420px))}.pixel-server .village-ready .server-tabs{width:min(540px,calc(100vw - 420px))}}
+@media(min-width:1600px){.pixel-hero.village-ready,.pixel-hero.compact-hero.village-ready,.pixel-server .pixel-hero.compact-hero.village-ready{min-height:258px}.pixel-home .pixel-hero.village-ready{min-height:344px}}
+@media(max-width:800px){.village-ready .hero-copy h1,.village-ready .hero-copy .sub{max-width:76%}.pixel-server .village-ready .hero-title{max-width:100%}.village-ready .hero-copy{padding-top:28px}}
+@media(max-width:700px){
+  .village-ready{--village-ground-height:96px}
+  .pixel-hero.village-ready,.pixel-hero.compact-hero.village-ready,.pixel-server .pixel-hero.compact-hero.village-ready{min-height:280px}.pixel-home .pixel-hero.village-ready{min-height:336px}
+  .village-ready .hero-copy,.pixel-server .village-ready .hero-copy{padding-bottom:calc(var(--village-ground-height) + 58px)}
+  .village-ready .hero-copy h1,.village-ready .hero-copy .sub{max-width:100%}.village-ready .hero-copy .hero-search{max-width:100%}
+  .village-ready .village-illustration{mask-image:linear-gradient(to right,transparent,#000 12%);-webkit-mask-image:linear-gradient(to right,transparent,#000 12%)}
+  .pixel-motion-control .village-gallery-link{font-size:10px;padding-left:5px;padding-right:3px;margin-left:1px}.village-cat-hint{font-size:11px}
+}

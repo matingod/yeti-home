@@ -1,0 +1,39 @@
+/* 服务器页格式修复 · 2026-10-26
+   ① 分区导航「转写任务」折行：nav 固定 540px 六等分，每格 90px、内容宽 60px，
+      18px×4 字 = 72px 放不下 → 折成两行，把整条从 46px 撑到 83px；
+      760px 断点下 nav 只有 340px，六格全部折行、最高到 143px。
+      修法：禁止折行，宽屏给足宽度维持六等分，窄屏改为按内容自适应（放不下就横向滚动）。
+   ② 两栏面板（任务队列 / 新计划）底部留白不等：左栏最后一段 ai-caption 带 12px margin，
+      视觉留白 32px，右栏 20px。归零最后子元素的下边距后，两栏都回到 20px。 */
+
+/* ① 导航 ------------------------------------------------------------- */
+.pixel-server .server-tabs a{white-space:nowrap}
+
+/* 宽屏：640px 让每格内容宽 76px，容得下 4 个 18px 汉字，保持六等分 */
+@media(min-width:1001px){
+  .pixel-server .server-tabs,
+  .pixel-server .village-ready .server-tabs{width:min(640px,100%)}
+}
+
+/* 平板：宽度受限时按内容自适应，不放就横向滚动，绝不折行 */
+@media(min-width:701px) and (max-width:1000px){
+  .pixel-server .server-tabs,
+  .pixel-server .village-ready .server-tabs{
+    width:min(640px,100%);max-width:100%;
+    overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;overscroll-behavior-x:contain;
+  }
+  .pixel-server .server-tabs a{flex:0 0 auto;padding:10px 11px}
+}
+
+/* 手机：整条占满，按内容排布；真的放不下时横向滚动 */
+@media(max-width:700px){
+  .pixel-server .server-tabs,
+  .pixel-server .village-ready .server-tabs{
+    width:100%;max-width:100%;
+    overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;overscroll-behavior-x:contain;
+  }
+  .pixel-server .server-tabs a{flex:0 0 auto;padding:9px 10px}
+}
+
+/* ② 两栏底部留白拉齐 ------------------------------------------------ */
+.ai-working-grid .ai-panel > :last-child{margin-bottom:0!important}

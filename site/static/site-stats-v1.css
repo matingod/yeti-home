@@ -1,0 +1,18 @@
+/* Reuse the Home paper panel and day/night palette. */
+body.pixel-blog .site-stats-motion{position:static!important;inset:auto!important;transform:none!important;width:fit-content;max-width:100%;margin:18px 0 0 auto;flex-wrap:wrap}
+.site-stats{--stats-muted:#705b3f;margin-top:28px!important}
+body:is([data-interior-time=night],[data-interior-time=dusk]) .site-stats{--stats-muted:var(--interior-muted)}
+.site-stats .site-stats-refresh,.site-stats .site-stats-status,.site-stats .site-stats-help{color:var(--stats-muted);font-size:12px;line-height:1.7}
+.site-stats .site-stats-refresh{margin:0}
+.site-stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:22px 0 16px}
+.site-stats-grid>div{min-width:0;border-left:2px solid var(--journal-rule);padding-left:14px}
+.site-stats-grid dt{font-size:13px;line-height:1.7;color:var(--stats-muted)}
+.site-stats-grid dd{margin:6px 0 0;display:flex;gap:7px;align-items:baseline;flex-wrap:wrap;color:var(--journal-text)}
+.site-stats-grid strong{font-size:30px;line-height:1.3;font-weight:650;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.site-stats-grid dd span{font-size:12px;color:var(--stats-muted)}
+.site-stats .site-stats-status{margin:8px 0}
+.site-stats-help{border-top:1px solid var(--journal-rule);padding-top:10px}
+.site-stats-help summary{cursor:pointer;min-height:30px;display:list-item}
+.site-stats-help summary:focus-visible{outline:2px solid var(--journal-edge);outline-offset:3px}
+.site-stats-help p{max-width:78ch;margin:8px 0 0;line-height:1.8}
+@media(max-width:650px){.site-stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}.site-stats-grid strong{font-size:28px}.site-stats .journal-heading h2{font-size:21px}}

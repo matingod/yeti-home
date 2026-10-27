@@ -1,0 +1,84 @@
+# Minimal local HTTPS template. For a public domain, configure a trusted TLS
+# certificate instead of `tls internal`. No cron/AI service is bundled.
+{
+	admin off
+	auto_https disable_redirects
+	skip_install_trust
+}
+
+(family_auth) {
+	forward_auth {$GK_UPSTREAM:127.0.0.1:8190} {
+		uri /auth/check
+		header_up X-Original-Uri {uri}
+		header_up X-Required-Role {args.0}
+		copy_headers X-Auth-User X-Auth-Role
+	}
+}
+
+{$HOME_ADDRESS:localhost:8443} {
+	tls internal
+	encode gzip
+	root * {$HOME_WEB_ROOT:/srv/homepage/www}
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy same-origin
+		-Server
+	}
+
+	# Routes are deliberately ordered. No catch-all file_server.
+	route {
+		@session path /login /logout /whoami
+		handle @session {
+			reverse_proxy {$GK_UPSTREAM:127.0.0.1:8190}
+		}
+		@life path /api/profile /api/anniv /api/notes /api/blog-drafts /api/holidays /api/status
+		handle @life {
+			reverse_proxy {$GK_UPSTREAM:127.0.0.1:8190}
+		}
+
+		# Optional integration point, disabled by default. Keep auth if enabling.
+		handle /service-api/* {
+			import family_auth admin
+			# Replace respond only after deploying and auditing your own service:
+			# uri strip_prefix /service-api
+			# reverse_proxy 127.0.0.1:9000
+			respond "Service backend not installed" 503
+		}
+		@unbundled path /api/* /cron-api /cron-api/* /ai-api /ai-api/* /ai /ai/* /hermes /hermes/* /dsh /dsh/* /mcp-connector/*
+		handle @unbundled {
+			respond "This backend is not included in the open-source package" 501
+		}
+
+		# Exact snapshot whitelist; users/profiles/private state can never be served.
+		@snapshots path /data/status.json /data/live.json
+		handle @snapshots {
+			import family_auth any
+			header Cache-Control no-store
+			file_server
+		}
+		@other_data path /data /data/*
+		handle @other_data {
+			respond "Not found" 404
+		}
+		@admin_page path /yeti /yeti/*
+		handle @admin_page {
+			import family_auth admin
+			try_files {path}/index.html {path}
+			file_server
+		}
+		@member_page path /yuki /yuki/*
+		handle @member_page {
+			import family_auth user
+			try_files {path}/index.html {path}
+			file_server
+		}
+		@public path / /index.html /blog /blog/* /static/* /demo-unavailable /demo-unavailable/*
+		handle @public {
+			try_files {path}/index.html {path}
+			file_server
+		}
+		handle {
+			respond "Not found" 404
+		}
+	}
+}

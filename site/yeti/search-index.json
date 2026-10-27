@@ -1,0 +1,74 @@
+[
+  {
+    "title": "阿暖的家",
+    "name": "阿暖的家",
+    "url": "/yeti/",
+    "href": "/yeti/",
+    "keywords": "阿暖的家",
+    "category": "页面",
+    "description": "开源演示页面"
+  },
+  {
+    "title": "阿安的家",
+    "name": "阿安的家",
+    "url": "/yuki/",
+    "href": "/yuki/",
+    "keywords": "阿安的家",
+    "category": "页面",
+    "description": "开源演示页面"
+  },
+  {
+    "title": "服务器",
+    "name": "服务器",
+    "url": "/yeti/server/",
+    "href": "/yeti/server/",
+    "keywords": "服务器",
+    "category": "页面",
+    "description": "开源演示页面"
+  },
+  {
+    "title": "示例变更日志",
+    "name": "示例变更日志",
+    "url": "/yeti/server/log/",
+    "href": "/yeti/server/log/",
+    "keywords": "示例变更日志",
+    "category": "页面",
+    "description": "开源演示页面"
+  },
+  {
+    "title": "示例服务目录",
+    "name": "示例服务目录",
+    "url": "/yeti/debug/",
+    "href": "/yeti/debug/",
+    "keywords": "示例服务目录",
+    "category": "页面",
+    "description": "开源演示页面"
+  },
+  {
+    "title": "动物图库",
+    "name": "动物图库",
+    "url": "/yeti/cats/",
+    "href": "/yeti/cats/",
+    "keywords": "动物图库",
+    "category": "页面",
+    "description": "开源演示页面"
+  },
+  {
+    "title": "画廊未接入",
+    "name": "画廊未接入",
+    "url": "/yeti/gallery/",
+    "href": "/yeti/gallery/",
+    "keywords": "画廊未接入",
+    "category": "页面",
+    "description": "开源演示页面"
+  },
+  {
+    "title": "博客",
+    "name": "博客",
+    "url": "/blog/",
+    "href": "/blog/",
+    "keywords": "博客",
+    "category": "页面",
+    "description": "开源演示页面"
+  }
+]

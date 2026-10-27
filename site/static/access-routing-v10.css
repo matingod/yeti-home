@@ -1,0 +1,21 @@
+.access-route-status{position:relative;display:inline-block;max-width:100%;font:12px/1.45 var(--pixel-font,"Microsoft YaHei",sans-serif);color:inherit;z-index:35}
+.access-route-status>summary{display:flex;align-items:center;gap:6px;list-style:none;cursor:pointer;min-height:30px;padding:4px 8px;border:1px solid #bfa778;background:#f8edcf;color:#654d34;white-space:nowrap;box-shadow:1px 2px 0 #6a513127}
+.access-route-status>summary::-webkit-details-marker{display:none}
+.access-route-status>summary::before{content:"";width:6px;height:6px;flex:0 0 6px;background:#87a76c;box-shadow:1px 1px 0 #536b44}
+.access-route-status[data-route-mode="public"]>summary::before{background:#80b8c5;box-shadow:1px 1px 0 #497b8b}
+.access-route-status[data-route-warning="true"]>summary::before{background:#c4a05e;box-shadow:1px 1px 0 #8e7042}
+.access-route-status>summary::after{content:"▾";font:10px/1 sans-serif;margin-left:2px}
+.access-route-status[open]>summary::after{content:"▴"}
+.access-route-status>summary:focus-visible,.access-route-status select:focus-visible{outline:2px solid #b38347;outline-offset:3px}
+.access-route-panel{position:absolute;right:0;top:calc(100% + 7px);width:270px;max-width:calc(100vw - 32px);padding:13px;background:#fff5dc;border:2px solid #8c6842;box-shadow:3px 4px 0 #36271a40;color:#5d4630;white-space:normal}
+.access-route-panel label{display:grid;gap:7px;font-size:12px}
+.access-route-panel select{width:100%;min-height:34px;border:1px solid #b69b6c;border-radius:0;padding:5px 8px;background:#fffaf0;color:#5d4630;font:inherit}
+.access-route-explanation{margin:10px 0 0;font:11px/1.6 "Microsoft YaHei",sans-serif;color:#7e694e}
+.access-route-status.access-route-floating{position:fixed;bottom:44px;right:16px}
+.access-route-status.access-route-floating .access-route-panel{top:auto;bottom:calc(100% + 7px)}
+a[data-access-route="local-only"]{cursor:help}
+.access-route-toast{position:fixed;left:50%;bottom:82px;transform:translateX(-50%);z-index:120;max-width:calc(100vw - 32px);padding:11px 17px;border:2px solid #9f7849;background:#fff1cc;color:#64492e;box-shadow:3px 4px 0 #3d2b1d40;font:13px/1.6 "Microsoft YaHei",sans-serif;text-align:center}
+.access-route-toast[hidden]{display:none}
+body[data-interior-time="night"] .access-route-status>summary{background:#d9c69c;border-color:#88724e;color:#473c2c}
+body[data-interior-time="night"] .access-route-panel{background:#e5d4b0}
+@media(max-width:700px){.access-route-status>summary{font-size:10px;padding:3px 6px;min-height:28px}.access-route-panel{position:fixed;top:auto;bottom:88px;right:16px}.access-route-status.access-route-floating{right:12px;bottom:44px}.access-route-status.access-route-floating .access-route-panel{position:fixed;bottom:88px}.access-route-toast{bottom:95px}}

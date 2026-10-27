@@ -1,0 +1,7 @@
+{
+ "probe": "/static/access-probe-v10.svg",
+ "publicHosts": [
+  "home.example"
+ ],
+ "routes": []
+}

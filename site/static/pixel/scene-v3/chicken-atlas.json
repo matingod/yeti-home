@@ -1,0 +1,325 @@
+{
+  "version": 1,
+  "image": "chicken-atlas.png",
+  "width": 256,
+  "height": 192,
+  "columns": 4,
+  "rows": 3,
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "footX": 32,
+  "footY": 56,
+  "direction": "right",
+  "actions": {
+    "idle": {
+      "fps": 2,
+      "loop": true,
+      "row": 0,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "w": 64,
+          "h": 64
+        }
+      ]
+    },
+    "walk": {
+      "fps": 8,
+      "loop": true,
+      "row": 1,
+      "frames": [
+        {
+          "x": 0,
+          "y": 64,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "x": 64,
+          "y": 64,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "x": 128,
+          "y": 64,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "x": 192,
+          "y": 64,
+          "w": 64,
+          "h": 64
+        }
+      ]
+    },
+    "peck": {
+      "fps": 5,
+      "loop": true,
+      "row": 2,
+      "frames": [
+        {
+          "x": 0,
+          "y": 128,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "x": 64,
+          "y": 128,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "x": 128,
+          "y": 128,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "x": 192,
+          "y": 128,
+          "w": 64,
+          "h": 64
+        }
+      ]
+    }
+  },
+  "source": {
+    "width": 1448,
+    "height": 1086,
+    "gridCell": 362,
+    "processing": "Mechanical alpha-bounds crop, fixed-scale nearest-neighbor resizing, fixed foot baseline and cell packing; no artwork redrawn."
+  },
+  "verification": {
+    "hasAlpha": true,
+    "frameCount": 12,
+    "allFramesInsideCells": true,
+    "bounds": [
+      {
+        "row": 0,
+        "col": 0,
+        "sourceBounds": {
+          "left": 78,
+          "top": 127,
+          "width": 205,
+          "height": 223
+        },
+        "destination": {
+          "x": 13,
+          "y": 16,
+          "width": 38,
+          "height": 41
+        },
+        "opaque": 27898
+      },
+      {
+        "row": 0,
+        "col": 1,
+        "sourceBounds": {
+          "left": 78,
+          "top": 127,
+          "width": 204,
+          "height": 223
+        },
+        "destination": {
+          "x": 13,
+          "y": 16,
+          "width": 37,
+          "height": 41
+        },
+        "opaque": 27853
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "sourceBounds": {
+          "left": 95,
+          "top": 124,
+          "width": 191,
+          "height": 227
+        },
+        "destination": {
+          "x": 16,
+          "y": 15,
+          "width": 35,
+          "height": 42
+        },
+        "opaque": 27849
+      },
+      {
+        "row": 0,
+        "col": 3,
+        "sourceBounds": {
+          "left": 78,
+          "top": 127,
+          "width": 204,
+          "height": 223
+        },
+        "destination": {
+          "x": 13,
+          "y": 16,
+          "width": 37,
+          "height": 41
+        },
+        "opaque": 27879
+      },
+      {
+        "row": 1,
+        "col": 0,
+        "sourceBounds": {
+          "left": 79,
+          "top": 110,
+          "width": 213,
+          "height": 227
+        },
+        "destination": {
+          "x": 13,
+          "y": 15,
+          "width": 39,
+          "height": 42
+        },
+        "opaque": 28181
+      },
+      {
+        "row": 1,
+        "col": 1,
+        "sourceBounds": {
+          "left": 74,
+          "top": 117,
+          "width": 217,
+          "height": 220
+        },
+        "destination": {
+          "x": 12,
+          "y": 16,
+          "width": 40,
+          "height": 40
+        },
+        "opaque": 28551
+      },
+      {
+        "row": 1,
+        "col": 2,
+        "sourceBounds": {
+          "left": 79,
+          "top": 104,
+          "width": 212,
+          "height": 233
+        },
+        "destination": {
+          "x": 13,
+          "y": 14,
+          "width": 39,
+          "height": 43
+        },
+        "opaque": 27835
+      },
+      {
+        "row": 1,
+        "col": 3,
+        "sourceBounds": {
+          "left": 78,
+          "top": 121,
+          "width": 212,
+          "height": 216
+        },
+        "destination": {
+          "x": 13,
+          "y": 17,
+          "width": 39,
+          "height": 40
+        },
+        "opaque": 28011
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "sourceBounds": {
+          "left": 72,
+          "top": 92,
+          "width": 227,
+          "height": 216
+        },
+        "destination": {
+          "x": 12,
+          "y": 17,
+          "width": 42,
+          "height": 40
+        },
+        "opaque": 29218
+      },
+      {
+        "row": 2,
+        "col": 1,
+        "sourceBounds": {
+          "left": 71,
+          "top": 116,
+          "width": 252,
+          "height": 192
+        },
+        "destination": {
+          "x": 12,
+          "y": 21,
+          "width": 46,
+          "height": 35
+        },
+        "opaque": 30830
+      },
+      {
+        "row": 2,
+        "col": 2,
+        "sourceBounds": {
+          "left": 77,
+          "top": 122,
+          "width": 236,
+          "height": 186
+        },
+        "destination": {
+          "x": 13,
+          "y": 22,
+          "width": 43,
+          "height": 34
+        },
+        "opaque": 28207
+      },
+      {
+        "row": 2,
+        "col": 3,
+        "sourceBounds": {
+          "left": 82,
+          "top": 82,
+          "width": 230,
+          "height": 226
+        },
+        "destination": {
+          "x": 14,
+          "y": 15,
+          "width": 42,
+          "height": 41
+        },
+        "opaque": 29723
+      }
+    ]
+  }
+}

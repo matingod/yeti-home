@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html data-access-routing="unconfigured" lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>AI调度与硬件 · 阿暖</title>
+<link href="/static/pixel/home.svg" rel="icon"/>
+<link href="/static/app.css" rel="stylesheet"/>
+<link href="/static/pixel.css?v=20261018-pixel1" rel="stylesheet"/>
+<link href="/static/home-layout.css?v=20261018-pixel1" rel="stylesheet"/>
+<link href="/static/server-v2.css?v=20261018-align4" rel="stylesheet"/>
+<link href="/static/refinement.css?v=20261018c" rel="stylesheet"/>
+<link href="/static/motion-v3.css?v=20261018-scene6" rel="stylesheet"/><link href="/static/interior-content-v10.css?v=20261018-interior10" rel="stylesheet"/><link href="/static/interior-pets-v10.css?v=20261026-petsplace" rel="stylesheet"/><link href="/static/access-routing-v10.css?v=20261018-interior10" rel="stylesheet"/><link href="/static/interior-v10.css?v=20261026-blogfix" rel="stylesheet"/><link href="/static/yeti-home-nav-v1.css?v=20261024-nighttime1" rel="stylesheet"/><link href="/static/server-changes-preview.css?v=20261024" rel="stylesheet"/><link href="/static/ai-workbench-queue10.css?v=20261025-queue10" rel="stylesheet"/><link href="/static/scene-common-v7.css?v=20261025-animals" rel="stylesheet"/><link href="/static/server-fix-20261026.css?v=20261026-1" rel="stylesheet"/></head><body class="pixel-inner pixel-server interior-v10" data-page="server" data-person="yeti">
+<nav aria-label="主导航" class="pixel-nav" data-yeti-home-nav=""><a class="brand" href="/"><img alt="" src="/static/pixel/home.svg"/><span>YETI · 家</span></a><div class="links"><a href="/yeti/">首页</a><a aria-current="page" href="/yeti/server/">服务器</a><a href="/yeti/server/log/">变更日志</a><a href="/yeti/debug/">调试</a><a href="/yeti/admin/">管理</a><a href="/yeti/gallery/">画廊</a><a href="/blog/">博客</a></div><div class="actions"><a class="linkq" href="/yuki/">阿安视角</a><span class="nav-person"><img alt="" src="/static/pixel/avatar-yeti.png"/>阿暖</span><a class="linkq" href="/logout">退出</a></div></nav>
+<section aria-label="AI调度与硬件" class="pixel-hero compact-hero server-hero">
+<div class="hero-copy">
+<div class="hero-title"><img alt="" src="/static/pixel/home.svg"/><h1>AI调度与硬件</h1><span class="read-only" id="ai-permission">演示 · 只读</span></div>
+<nav aria-label="服务器分区" class="server-tabs"><a class="active" href="#ai-queue">任务</a><a href="#ai-external">转写任务</a><a href="#ai-models">AI登记</a><a href="#compute">算力</a><a href="#storage">存储</a><a href="#apps">应用</a></nav>
+</div>
+<div aria-hidden="true" class="pixel-scene"></div>
+</section>
+<main class="server-dashboard">
+<div class="server-verdict is-unknown" id="verdict" role="status"><span aria-hidden="true" class="verdict-icon">…</span><strong>正在读取服务器状态</strong><span class="verdict-copy">状态采集完成后自动更新。</span></div>
+<section aria-labelledby="ai-title" class="ai-workbench" data-backend="unconfigured" id="ai-workbench">
+<header class="ai-heading"><div><p class="ai-eyebrow">HOME / 同一资源池 · 非抢占调度</p><h2 id="ai-title">任务、AI 与算力</h2></div><button disabled="" id="ai-refresh" type="button">后端未接入</button></header>
+<div class="ai-connection" id="ai-connection" role="status">演示未接入：没有调度后端，不能提交、启动、停止或取消任务。</div>
+<p class="ai-meta" id="ai-revisions">AI 管理接口未配置；下方硬件数据来自虚构 demo fixture。</p>
+<section aria-label="硬件概览" class="server-section" id="hardware"><div class="hardware-grid" id="hw-kv"></div></section>
+<div class="ai-hardware-note" id="ai-hardware-note">GPU合计功率、CPU负载与 MemAvailable 等待既有遥测；非整机功率。</div>
+<section aria-label="显卡算力" class="server-section" id="compute"><div class="gpu-grid" id="gpu-bars"></div></section>
+<div class="ai-working-grid">
+<section aria-labelledby="ai-queue-title" class="ai-panel" id="ai-queue">
+<header class="ai-panel-head"><h3 id="ai-queue-title">任务队列</h3><span id="ai-queue-count">待连接</span></header>
+<div class="ai-filters"><label>搜索任务<input autocomplete="off" id="ai-search" placeholder="任务ID、模型、等待原因" type="search"/></label><label>用途<select id="ai-lane"><option value="all">全部用途</option><option value="daily">日常</option><option value="creation">创作</option></select></label><label>状态<select id="ai-state"><option selected="" value="pending">等待 / 阻断 / 在途</option><option value="all">全部状态</option><option value="waiting">等待 / 阻断</option><option value="active">在途</option><option value="succeeded">已完成</option><option value="failed">失败</option><option value="unknown">待核</option><option value="cancelled">已取消</option></select></label></div>
+<p class="ai-caption">每页 10 条，搜索与筛选覆盖全部已读取任务。关闭页面不会取消已受理的异步任务。</p>
+<div id="ai-tasks"><p class="ai-empty">未连接；没有可核实的队列数据。</p></div>
+<nav aria-label="任务队列分页" class="ai-queue-pagination" hidden="" id="ai-queue-pagination"><button aria-controls="ai-tasks" id="ai-queue-prev" type="button">上一页</button><span aria-live="polite" id="ai-queue-page" role="status"></span><button aria-controls="ai-tasks" id="ai-queue-next" type="button">下一页</button></nav>
+<p class="ai-caption">仅未派发、未持有资源的排队任务可经精确确认取消；已经派发不可强停。状态有竞态时以后端拒绝为准。收起详情不是取消。</p>
+</section>
+<section aria-labelledby="ai-plan-title" class="ai-panel"><header class="ai-panel-head"><h3 id="ai-plan-title">新计划</h3><span>先预览，再登记</span></header>
+<p class="ai-caption">固定实际模型版本后提交。本表单用于JSON业务；ASR仍用原文件上传入口，上传调用同样由后台先登记。网页不承担执行责任。</p>
+<p class="ai-caption" id="ai-readonly-note">管理权限待核；仅展示已读取状态。</p>
+<form hidden="" id="ai-plan-form">
+<label>运行实例<select id="ai-runtime" required=""></select></label>
+<div class="ai-two"><label>用途<select id="ai-plan-lane"><option value="daily">日常</option><option value="creation">创作</option></select></label><label>输入类别<input id="ai-input-class" maxlength="80" required="" value="small"/></label></div>
+<label>业务 payload（JSON对象）<textarea id="ai-payload" placeholder='{"messages":[{"role":"user","content":"你好"}]}' required="" rows="4" spellcheck="false"></textarea></label>
+<details class="ai-inline"><summary>依赖与输入引用</summary><label>依赖任务ID（每行一个）<textarea id="ai-dependencies" rows="2"></textarea></label><label>已登记输入引用（每行一个；不填主机路径）<textarea id="ai-input-refs" rows="2"></textarea></label></details>
+<button class="ai-primary" type="submit">生成计划预览</button>
+</form>
+<div hidden="" id="ai-preview"></div>
+<p aria-live="polite" class="ai-result" id="ai-plan-result" role="status"></p>
+</section>
+</div>
+<section aria-labelledby="ai-external-title" class="ai-panel ai-registry" id="ai-external">
+<header class="ai-panel-head"><div><h3 id="ai-external-title">音频转文字</h3><p class="ai-caption">用 Whisper large-v3 把音频转成文字，是字幕制作中的语音识别步骤。这不是定时任务：登记后还要由服务器执行程序手动启动，不会到点自动运行。</p></div><span id="ai-external-count">待连接</span></header>
+<div class="ai-two"><label>搜索转写任务<input autocomplete="off" id="ai-external-search" placeholder="任务编号、AI 名称、等待原因" type="search"/></label><label>执行状态<select id="ai-external-state"><option value="all">全部状态</option><option value="planned">已登记，尚未启动</option><option value="reserved">等待服务器启动</option><option value="creating">准备运行环境</option><option value="prepared">准备完成，未启动</option><option value="starting">正在启动，待确认</option><option value="bound">已核实运行</option><option value="unknown">待核</option><option value="succeeded">已完成</option><option value="failed">失败</option><option value="cancelled">已取消</option><option value="reported">其他脚本上报</option></select></label></div>
+<p class="ai-caption" id="ai-external-pagination">仅筛选已读取记录；后台历史范围待核。</p>
+<p class="ai-caption" id="ai-external-readonly">权限与状态待核，不能提交外部计划。</p>
+<details class="ai-inline" id="ai-external-new-task"><summary>登记新任务（手动维护，不会自动执行）</summary><form class="ai-candidate-form" hidden="" id="ai-external-plan-form">
+<h4>登记一次音频转写</h4><p class="ai-caption">选择 Whisper 和服务器上已有的 WAV 音频，登记要生成的文字结果文件。这里不上传文件，也不设置执行日期。点下方按钮只保存任务，不会开始识别；还需服务器执行程序接手。通常无需手动预留显卡，程序启动前会申请资源。</p>
+<label>处理用的 AI<select id="ai-external-template" required=""></select></label><button id="ai-external-pin" type="button">确认使用这个 AI 版本</button><p class="ai-caption" id="ai-external-pinned">尚未固定版本，不可提交。</p>
+<div class="ai-two"><label>输入音频（工作目录内的 WAV 文件）<input autocomplete="off" id="ai-external-input" maxlength="512" placeholder="inputs/audio.wav" required=""/></label><label>转写结果（工作目录内的 JSON 文件）<input autocomplete="off" id="ai-external-output" maxlength="512" placeholder="outputs/result.json" required=""/></label></div>
+<button class="ai-primary" disabled="" id="ai-external-submit" type="submit">登记任务（不会自动开始）</button>
+</form><p aria-live="polite" class="ai-result" id="ai-external-plan-result" role="status"></p></details>
+<div id="ai-external-jobs"><p class="ai-empty">未连接；外部计划待核。</p></div>
+<section aria-labelledby="ai-external-control-title" class="ai-control-panel" hidden="" id="ai-external-control"><h4 id="ai-external-control-title">外部操作确认</h4><p class="ai-caption" id="ai-external-control-explanation"></p><form id="ai-external-control-form"><label class="ai-check" hidden="" id="ai-external-loss-row"><input id="ai-external-loss" type="checkbox"/>确认结果不可恢复，只记为失败；后台独立核实退出与资源释放，不强停、不重放。</label><label>输入完整外部任务 ID 确认<input autocomplete="off" id="ai-external-confirm-target" required=""/></label><div class="ai-actions"><button class="ai-primary" id="ai-external-control-submit" type="submit">确认外部操作</button><button id="ai-external-control-close" type="button">收起外部确认</button></div></form><p aria-live="polite" class="ai-result" id="ai-external-control-result" role="status"></p></section>
+<details class="ai-inline" id="ai-external-templates"><summary>处理程序与版本资料（维护用）</summary><div id="ai-external-template-list"><p class="ai-empty">模板待核。</p></div></details>
+<details class="ai-inline"><summary>其他程序的运行记录（维护用）</summary><section aria-labelledby="ai-external-observed-title"><h4 id="ai-external-observed-title">既有进程 · 仅观察 / 未准入</h4><p class="ai-caption">模板匹配不代表批准或准入；不追认历史任务，不占调度租约，也不保证未知 GPU 工作可被调度器禁止。</p><p class="ai-caption" id="ai-external-observation-count">观察范围待核。</p><div id="ai-external-observations"><p class="ai-empty">观察待核。</p></div></section></details>
+</section>
+<section aria-labelledby="ai-models-title" class="ai-panel ai-registry" id="ai-models">
+<header class="ai-panel-head"><div><h3 id="ai-models-title">AI登记与生命周期</h3><p class="ai-caption">模型版本 / 运行实例 / 能力路由分开登记；健康仅指接口探针，不等于质量或推理已验收。</p></div><button aria-controls="ai-candidate-form" aria-expanded="false" hidden="" id="ai-register-toggle" type="button">加入候选</button></header>
+<form class="ai-candidate-form" hidden="" id="ai-candidate-form">
+<p class="ai-caption">仅登记，不下载、不启动。音频候选未通过峰值与听感验收，不代表已上线。</p>
+<div class="ai-two"><label>模型标识<input autocomplete="off" id="ai-model-id" maxlength="120" required=""/></label><label>确切版本<input id="ai-model-version" maxlength="240" required=""/></label></div>
+<div class="ai-two"><label>适配器<input id="ai-adapter" maxlength="80" placeholder="未知可登记，不能执行" required=""/></label><label>权重引用（逗号分隔；不是路径）<input id="ai-weights" maxlength="500"/></label></div>
+<div class="ai-two"><label>来源 / 许可说明<input id="ai-source" maxlength="500"/></label><label>验收证据标识（可空）<input id="ai-evidence-id" maxlength="200"/></label></div>
+<button class="ai-primary" type="submit">仅登记候选</button><p class="ai-result" id="ai-candidate-result" role="status"></p>
+</form>
+<div id="ai-model-table"><p class="ai-empty">尚未读取AI登记。候选未部署、按需休眠都不等于故障。</p></div>
+<section aria-labelledby="ai-control-title" class="ai-control-panel" hidden="" id="ai-control-panel"><h4 id="ai-control-title">管理确认</h4><p id="ai-control-explanation"></p><form id="ai-control-form">
+<div hidden="" id="ai-approval-fields"><p>只录入真实测量与验收记录，不用权重文件大小替代显存。</p><label>证据ID<input id="ai-approval-evidence" maxlength="200"/></label><div class="ai-two"><label>冷启峰值 RAM / MiB<input id="ai-peak-ram" min="1" step="1" type="number"/></label><label>冷启峰值 VRAM / MiB<input id="ai-peak-vram" min="1" step="1" type="number"/></label></div><label class="ai-check"><input id="ai-adapter-verified" type="checkbox"/>已核实适配器与真实输出质量</label></div>
+<label class="ai-check" hidden="" id="ai-loss-confirm-row"><input id="ai-loss-confirm" type="checkbox"/>确认结果不可恢复，只记为失败；不停止模型，不重播请求。</label><label>输入完整目标标识确认<input autocomplete="off" id="ai-confirm-target" required=""/></label><div class="ai-actions"><button class="ai-primary" type="submit">确认管理动作</button><button id="ai-control-close" type="button">收起确认</button></div><p class="ai-result" id="ai-control-result" role="status"></p>
+</form></section>
+<p class="ai-caption">模型与资源策略应由你自己的后端提供；开源演示不包含生产模型清单。</p>
+</section>
+</section>
+<div class="server-bottom">
+<section aria-labelledby="storage-title" class="server-panel storage-panel" id="storage">
+<header class="server-panel-head"><img alt="" src="/static/server-icons-v5/disk.svg"/><h2 id="storage-title">存储地图</h2><div aria-label="图例" class="map-legend"><span><i></i>已用</span><span><i class="free"></i>空闲</span><span><i class="temp"></i>温度</span></div></header>
+<div id="storage-map"><p class="server-empty">正在读取存储数据…</p></div>
+<div class="map-info"><span id="map-hint">每行一个存储区 · 末行盘温</span><span id="map-total"></span></div>
+</section>
+<section aria-labelledby="apps-title" class="server-panel apps-panel" id="apps">
+<header class="server-panel-head"><img alt="" src="/static/server-icons-v5/calendar.svg"/><h2 id="apps-title">应用状态</h2></header>
+<div class="service-list" id="app-grid"><p class="server-empty">正在读取服务状态…</p></div>
+<details class="service-more" hidden="" id="app-more"><summary id="app-more-summary">查看全部服务</summary><div class="service-list" id="app-more-list"></div></details>
+</section>
+</div>
+<details class="server-details" id="server-details"><summary>查看详细状态 · 磁盘、存储与虚拟机</summary>
+<div id="alert-details"></div><div class="storage-detail-grid" id="sto-bars"></div><div class="diskrow" id="hw-disks"></div><p class="vm-detail" id="vm-details"></p>
+</details>
+<footer class="server-footer"><div><p id="upd" role="status">正在读取采集时间…</p><p>前台自动更新：CPU/GPU 每 10 秒 · 服务/存储每 60 秒</p><button class="btn" id="refresh-status" type="button">立即刷新</button></div><div class="footer-links"><a href="/demo-unavailable/" rel="noopener" target="_blank">原始监控视图 →</a><a href="/yeti/debug/">底层调试 →</a><a href="/yeti/">返回首页 →</a></div></footer>
+</main>
+<script src="/static/app.js?v=20261027-clean1"></script>
+<script src="/static/server-v2.js?v=20261026-krea-retired"></script>
+<script src="/static/pixel-v7-animals.js?v=20261025-animals"></script>
+<script src="/static/town-weather-v9.js?v=20261026-weathersnap"></script><script src="/static/interior-climate-v11.js?v=20261025-global7"></script><script src="/static/interior-pets-v11.js?v=20261025-global7"></script><script src="/static/access-routing-v10.js?v=20261018-interior10"></script><script src="/static/server-changes-preview.js?v=20261024"></script><script src="/static/ai-workbench-queue10.js?v=20261027-active-groups"></script></body></html>

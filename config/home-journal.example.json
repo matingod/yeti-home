@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "users": {
+    "yeti": {"importedLegacy": true, "notes": [], "drafts": []},
+    "yuki": {"importedLegacy": true, "notes": [], "drafts": []}
+  }
+}

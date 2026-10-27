@@ -1,0 +1,72 @@
+/* Home 访问统计 —— 全宽扁条 v3（2026-10-26 第三版）
+   用户要求：宽度撑到和其它面板一样（1056 内容宽），高度保持紧凑（约 104px）。
+   改动：
+   1) 卡宽 100%，与首页文章/随手记面板同宽；
+   2) 场景动效按钮组由 site-stats-v3.js 搬进卡内，绝对定位在卡右上角，不再压在边框上；
+   3) 四列均分，字号仍是小号，整条高度 ≈104px。
+   标记结构与 site-stats-v1.js/v3.js 的 [data-stat] 选择器契约不变。 */
+
+body.pixel-blog .site-stats-motion{
+  position:absolute!important;
+  inset:7px 12px auto auto!important;   /* 卡内右上：上 7、右 12 */
+  transform:none!important;margin:0!important;z-index:6;
+  padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;
+  max-width:calc(100% - 24px);
+}
+body.pixel-blog .site-stats-motion button{min-height:26px;font-size:9.5px;padding:3px 7px}
+
+.site-stats{
+  --stats-muted:#705b3f;
+  position:relative;
+  width:100%!important;max-width:none;
+  margin:0!important;
+  padding:8px 14px 7px!important;
+}
+body:is([data-interior-time=night],[data-interior-time=dusk]) .site-stats{--stats-muted:var(--interior-muted)}
+
+/* 标题行：标题 + 每分钟更新 靠左；右侧 176px 留给按钮组 */
+.site-stats .journal-heading{
+  display:flex;align-items:center;gap:8px;flex-wrap:nowrap;
+  padding-right:200px;
+}
+.site-stats .journal-heading h2{font-size:13px!important;line-height:1.3;letter-spacing:.01em;flex:0 0 auto}
+.site-stats .site-stats-refresh{margin:0;font-size:9px;line-height:1.3;white-space:nowrap;opacity:1;color:var(--stats-muted)}
+
+/* 四列均分，列间一条细竖线 */
+.site-stats-grid{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:0;margin:7px 0 5px;
+}
+.site-stats-grid>div{min-width:0;border-left:1px solid var(--journal-rule);padding-left:10px}
+.site-stats-grid>div:first-child{border-left:0;padding-left:0}
+.site-stats-grid dt{font-size:9px;line-height:1.35;color:var(--stats-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.site-stats-grid dd{margin:2px 0 0;display:flex;gap:3px;align-items:baseline;flex-wrap:nowrap;color:var(--journal-text)}
+.site-stats-grid strong{font-size:17px;line-height:1.15;font-weight:650;font-variant-numeric:tabular-nums;overflow-wrap:normal}
+.site-stats-grid dd span{font-size:8.5px;color:var(--stats-muted);white-space:nowrap}
+
+.site-stats .site-stats-status{font-size:9px;line-height:1.35;margin:0;color:var(--stats-muted)}
+.site-stats-help{border-top:1px solid var(--journal-rule);padding-top:2px;margin-top:4px}
+.site-stats-help summary{cursor:pointer;min-height:0;display:list-item;font-size:9px;line-height:1.35}
+.site-stats-help summary:focus-visible{outline:2px solid var(--journal-edge);outline-offset:2px}
+.site-stats-help p{font-size:9px;line-height:1.55;margin:4px 0 0;max-width:72ch}
+
+/* 桌面端：卡顶边与场景框下沿齐平（wrap 上内边距清零） */
+@media(min-width:651px){
+  body.pixel-blog > main.wrap{position:relative;padding-top:0}
+}
+
+/* 窄屏：两列数字，卡不再贴边（场景本身矮，贴上去太挤） */
+@media(max-width:650px){
+  .site-stats .journal-heading{padding-right:186px}
+}
+/* 极窄：按钮组放进标题行下方，避免挤掉标题 */
+@media(max-width:480px){
+  .site-stats .journal-heading{padding-right:0;flex-wrap:wrap}
+  body.pixel-blog .site-stats-motion{position:static!important;inset:auto!important;margin:6px 0 0 auto!important;order:9;flex-wrap:wrap}
+}
+@media(max-width:650px){
+  .site-stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 10px}
+  .site-stats-grid>div:nth-child(3){border-left:0;padding-left:0}
+  .site-stats-grid dt,.site-stats .site-stats-status,.site-stats-help summary{font-size:9.5px}
+  .site-stats-grid strong{font-size:18px}
+}

@@ -1,0 +1,35 @@
+# Runtime state and credentials: never publish these directories.
+demo/data/
+data/
+raw/
+.env
+.env.*
+!.env.example
+users.json
+fails.json
+auth.json
+cookies.json
+*storage_state*.json
+*portal_state*.json
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.sqlite*
+*.db
+*.log
+*.bak
+*.bak-*
+*.before-*
+*.bundle
+*.tmp
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Editor and system files
+.DS_Store
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html data-access-routing="unconfigured" lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>定时任务 · 阿安 · 家</title>
+<meta content="定时任务管理：查看、新建、编辑、暂停与删除" name="description"/>
+<link href="/static/pixel/home.svg" rel="icon"/>
+<link href="/static/app.css" rel="stylesheet"/>
+<link href="/static/pixel.css?v=20261018-pixel1" rel="stylesheet"/>
+<link href="/static/server-v2.css?v=20261018-align4" rel="stylesheet"/>
+<link href="/static/refinement.css?v=20261018c" rel="stylesheet"/>
+<link href="/static/home-layout.css?v=20261018-pixel1" rel="stylesheet"/>
+<link href="/static/motion-v3.css?v=20261018-scene6" rel="stylesheet"/>
+<link href="/static/interior-content-v10.css?v=20261018-interior10" rel="stylesheet"/>
+<link href="/static/interior-pets-v10.css?v=20261026-petsplace" rel="stylesheet"/>
+<link href="/static/access-routing-v10.css?v=20261018-interior10" rel="stylesheet"/>
+<link href="/static/interior-v10.css?v=20261026-blogfix" rel="stylesheet"/>
+<link href="/static/cron-console.css?v=20261022e" rel="stylesheet"/>
+</head>
+<body class="pixel-home interior-v10 cron-page" data-page="yuki" data-person="yuki" data-pixel-version="2">
+<nav aria-label="主导航" class="pixel-nav"><a class="brand" href="/"><img alt="" src="/static/pixel/home.svg"/><span>YETI · 家</span></a><div class="links"><a href="/yuki/">首页</a><a aria-current="page" href="/yuki/cron/">定时任务</a><a href="/yuki/gallery/">画廊</a><a href="/blog/">博客</a></div><div class="actions"><span class="nav-person"><img alt="" src="/static/pixel/avatar-yuki.png"/>阿安</span><a class="linkq" href="/logout">退出</a></div></nav>
+<main class="cc-wrap" data-cron-console="" data-demo="true" data-profile="yuki" data-switch="0">
+<header class="cc-head">
+<div>
+<h1>定时任务</h1>
+<p>DEMO · 虚构任务列表 · 只读演示，未接入网关，不会执行任务。<b id="cc-owner">阿安</b></p>
+</div>
+</header>
+<div class="cc-alert cc-alert--err" hidden="" id="cc-alert"></div>
+<div class="cc-toolbar">
+<div aria-label="筛选" class="cc-filters" id="cc-filters" role="group">
+<button aria-pressed="true" class="cc-chip" data-filter="all" type="button">全部</button>
+<button aria-pressed="false" class="cc-chip" data-filter="on" type="button">运行中</button>
+<button aria-pressed="false" class="cc-chip" data-filter="off" type="button">已停</button>
+<span class="cc-tag" id="cc-count" style="margin-left:6px">读取中…</span>
+<span class="cc-tag" id="cc-theme-state" title="主题状态">按时间</span>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<div aria-label="主题" class="cc-theme" role="group">
+<button aria-pressed="true" data-theme-set="auto" title="按时间自动切换" type="button">自动</button>
+<button aria-pressed="false" data-theme-set="light" title="始终亮色" type="button">亮色</button>
+<button aria-pressed="false" data-theme-set="dark" title="始终暗色" type="button">暗色</button>
+</div>
+<button class="cc-btn" id="cc-refresh" type="button">刷新</button>
+<button class="cc-btn cc-btn--primary" disabled="" id="cc-new" type="button">+ 新建任务</button>
+</div>
+</div>
+<div aria-live="polite" class="cc-list" id="cc-list">
+<div class="cc-empty"><strong>正在读取任务清单…</strong></div>
+</div>
+<p class="cc-note">计划写法：<code>every 30m</code>（每30分钟）、<code>0 9 * * *</code>（每天9点）、<code>30m</code>（30分钟后执行一次）、<code>2026-11-01T09:00:00</code>（指定时间一次）。删除不可恢复；暂停后可随时恢复。</p>
+</main>
+<dialog aria-labelledby="cc-dialog-title" class="cc-dialog" id="cc-dialog">
+<form class="cc-form" id="cc-form" method="dialog">
+<h2 id="cc-dialog-title">新建任务</h2>
+<p class="hint">保存后由网关按计划自动执行，无需重启任何服务。</p>
+<p class="err" id="cc-form-err" role="alert"></p>
+<div class="cc-field"><label for="f-name">任务名称<span class="sub">方便自己认</span></label><input autocomplete="off" id="f-name" maxlength="80" placeholder="例：每天早上汇报服务器状态"/></div>
+<div class="cc-field"><label for="f-schedule">执行计划<span class="sub">必填</span></label><input autocomplete="off" id="f-schedule" maxlength="64" placeholder="every 30m / 0 9 * * * / 30m" required=""/></div>
+<div class="cc-field"><label for="f-prompt">任务内容<span class="sub">让助手做什么，写清楚</span></label><textarea id="f-prompt" maxlength="8000" placeholder="例：检查服务器磁盘剩余空间，低于10%就提醒我具体哪块盘。"></textarea></div>
+<div class="cc-row">
+<div class="cc-field"><label for="f-deliver">结果送到<span class="sub">默认回到发起会话</span></label>
+<select id="f-deliver"><option value="origin">回到原会话</option><option value="local">只存本地</option><option value="all">所有已连接渠道</option></select>
+</div>
+<div class="cc-field"><label for="f-repeat">重复次数<span class="sub">留空=长期</span></label><input autocomplete="off" id="f-repeat" inputmode="numeric" maxlength="4" placeholder="留空表示一直执行"/></div>
+</div>
+<div class="foot"><button class="cc-btn" id="cc-cancel" type="button">取消</button><button class="cc-btn cc-btn--primary" id="cc-save" type="submit">保存</button></div>
+</form>
+</dialog>
+<div aria-live="polite" class="cc-toast" hidden="" id="cc-toast" role="status"></div>
+<script defer="" src="/static/cron-console.js?v=20261022e"></script>
+</body></html>

@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "image": "village-clean.png",
+  "width": 2116,
+  "height": 743,
+  "anchors": {
+    "tree": {"x": 1290, "y": 610},
+    "door": {"x": 1590, "y": 615},
+    "chimney": {
+      "x": 1621,
+      "y": 359,
+      "nx": 0.7660680529300568,
+      "ny": 0.4831763122476447
+    },
+    "chicken": {
+      "x": 1879,
+      "y": 606,
+      "nx": 0.8879962192816635,
+      "ny": 0.8156123822341858
+    },
+    "pond": {
+      "x": 1950,
+      "y": 690,
+      "nx": 0.9215500945179584,
+      "ny": 0.9286675639300135
+    }
+  },
+  "groundY": 606,
+  "horizonY": 548,
+  "notes": "Opaque full scene; bare chimney, no static chicken or smoke. Keep single uniform scale when placing overlays."
+}

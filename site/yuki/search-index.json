@@ -1,0 +1,25 @@
+[
+  {
+    "title": "阿安的家",
+    "name": "阿安的家",
+    "url": "/yuki/",
+    "href": "/yuki/",
+    "keywords": "阿安的家",
+    "category": "页面",
+    "description": "开源演示页面"
+  },
+  {
+    "title": "博客",
+    "name": "博客",
+    "url": "/blog/",
+    "href": "/blog/",
+    "keywords": "博客",
+    "category": "页面",
+    "description": "开源演示页面"
+  },
+  {
+    "name": "动物图库",
+    "href": "/yuki/cats/",
+    "description": "小镇原创动物演示"
+  }
+]

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html data-access-routing="unconfigured" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#729f66" name="theme-color"/>
+<title>YETI · 家</title>
+<link href="/static/pixel/home.svg" rel="icon"/>
+<link href="/static/login-town-v8.css?v=20261018-climate9" rel="stylesheet"/>
+</head>
+<body class="login-town" data-page="entrance">
+<div aria-label="可以和动物、居民互动的像素小镇" class="town-stage" id="town-stage">
+<div class="town-world" id="town-world">
+<canvas aria-hidden="true" height="1024" id="town-canvas" width="1536"></canvas>
+<div class="town-hotspots" id="town-hotspots"></div>
+<div aria-live="polite" class="town-balloon" hidden="" id="town-balloon" role="status"></div>
+</div>
+</div>
+<header aria-label="小镇时间，北京时间" class="town-time-hud">
+<span id="town-period">小镇时光</span>
+<time id="town-clock">--:--</time>
+<span id="town-date">北京时间</span>
+<span class="town-weather-summary" id="town-weather-summary">云栖 · 天气读取中</span>
+</header>
+<aside aria-label="今日收集" class="town-inventory">
+<button aria-label="查看今天的小篮子" class="town-basket" id="town-basket" type="button">
+<span class="town-basket-title">小篮子</span>
+<span class="town-basket-item">鸡蛋 <b id="town-eggs">0</b></span>
+<span class="town-basket-item">蔬菜 <b id="town-crops">0</b></span>
+</button>
+</aside>
+<main class="town-login-shell">
+<section aria-labelledby="town-choose-title" class="town-panel town-choose-card">
+<span aria-hidden="true" class="town-door-lamp"><span class="town-lamp-halo"></span><svg shape-rendering="crispEdges" viewbox="0 0 32 48"><path d="M14 0h4v5h5v4h-3V7h-6v8h-4V5h4z" fill="#4d3828"></path><path d="M9 13h14v3h4v5H5v-5h4zM6 22h20v19H6zM9 42h14v4H9z" fill="#6b4b2d"></path><path d="M10 15h12v2h3v2H7v-2h3zM9 24h14v14H9zM8 40h16v2H8z" fill="#be9451"></path><path d="M11 25h10v11H11z" fill="#d7c29b"></path><path class="town-lamp-flame" d="M11 25h10v11H11z" fill="#ffe6a0"></path><path d="M15 23h2v16h-2zM8 28h16v2H8z" fill="#70502e"></path></svg></span>
+<a aria-label="YETI 的家" class="town-brand" href="/"><img alt="" src="/static/pixel/home.svg"/>YETI · 家</a>
+<h1 id="town-choose-title">谁回家了？</h1>
+<p class="town-subtitle">小镇一直在，选一个自己吧。</p>
+<div class="town-identities">
+<a class="town-identity" data-person="yeti" href="/login?as=yeti&amp;next=/yeti/">
+<img alt="Yeti的男孩像素头像" class="town-player-avatar" height="96" src="/static/pixel/avatar-yeti.png" width="96"/>
+<strong>阿暖</strong><span>工作与创造</span><span class="town-identity-enter">回家 →</span>
+</a>
+<a class="town-identity" data-person="yuki" href="/login?as=yuki&amp;next=/yuki/">
+<img alt="Yuki的女孩像素头像" class="town-player-avatar" height="96" src="/static/pixel/avatar-yuki.png" width="96"/>
+<strong>阿安</strong><span>生活与收藏</span><span class="town-identity-enter">回家 →</span>
+</a>
+</div>
+<a class="town-blog" href="/blog/">先逛逛博客 →</a>
+<p class="town-home-note">两个人，一座小镇。</p>
+</section>
+</main>
+<footer class="town-footer">
+<p class="town-scene-hint">点点小动物，也可以找找今天的鸡蛋和蔬菜</p>
+<button aria-controls="town-climate-panel" aria-expanded="false" class="town-season-toggle" id="town-season-toggle" type="button"><span id="town-season-name">小镇四季</span> · 四季图鉴</button>
+<div aria-label="场景动画" class="town-motion" id="town-motion" role="group">
+<span>动画</span>
+<button aria-pressed="true" data-town-motion="full" type="button">完整</button>
+<button aria-pressed="false" data-town-motion="gentle" type="button">轻柔</button>
+<button aria-pressed="false" data-town-motion="still" type="button">静止</button>
+</div>
+</footer>
+<section aria-label="四季图鉴与云栖天气" class="town-climate-panel" hidden="" id="town-climate-panel">
+<h2>小镇的四季</h2>
+<p id="town-season-mode">跟随现实</p>
+<div aria-label="浏览十二段季节" class="town-season-options" id="town-season-options" role="group"><button aria-pressed="false" data-town-phase="early-spring" type="button">初春</button><button aria-pressed="false" data-town-phase="mid-spring" type="button">仲春</button><button aria-pressed="false" data-town-phase="late-spring" type="button">暮春</button><button aria-pressed="false" data-town-phase="early-summer" type="button">初夏</button><button aria-pressed="false" data-town-phase="high-summer" type="button">盛夏</button><button aria-pressed="false" data-town-phase="late-summer" type="button">晚夏</button><button aria-pressed="false" data-town-phase="early-autumn" type="button">初秋</button><button aria-pressed="false" data-town-phase="deep-autumn" type="button">深秋</button><button aria-pressed="false" data-town-phase="late-autumn" type="button">暮秋</button><button aria-pressed="false" data-town-phase="early-winter" type="button">初冬</button><button aria-pressed="false" data-town-phase="mid-winter" type="button">隆冬</button><button aria-pressed="false" data-town-phase="late-winter" type="button">冬末</button></div>
+<p id="town-season-description"></p>
+<button id="town-follow-real" type="button">跟随现实</button>
+<p class="town-season-note">按江南时节绘制。预览只换季节，天气仍随云栖。</p>
+<div class="town-weather-info"><strong>江苏 · 云栖</strong><p id="town-weather-detail">正在读取天气</p><a href="https://open-meteo.com/en/docs" id="town-weather-source" rel="noopener noreferrer" target="_blank">Open-Meteo · 当前模型天气</a></div>
+</section>
+<div aria-live="polite" class="town-toast" hidden="" id="town-toast" role="status"></div>
+<noscript><p class="town-noscript">场景互动需要 JavaScript，身份选择和口令登录仍可正常使用。</p></noscript>
+<script defer="" src="/static/town-environment-v9.js?v=20261018-climate9"></script>
+<script defer="" src="/static/town-weather-v9.js?v=20261026-weathersnap"></script>
+<script defer="" src="/static/login-town-v8.js?v=20261018-climate9"></script>
+</body>
+</html>

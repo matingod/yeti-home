@@ -1,0 +1,2 @@
+# Optional mountpoints, one absolute path per line; no whitespace in paths.
+# /
